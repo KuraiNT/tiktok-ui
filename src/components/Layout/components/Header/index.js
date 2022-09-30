@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-import styles from './Header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
@@ -13,12 +12,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
-import images from '~/assets/images';
+import routesConfig from '~/config/routes';
 import Button from '~/components/Button';
+import styles from './Header.module.scss';
+import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
-import Image from '~/components/Image';
 import { MessageIcon, UploadIcon, InboxIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 import Search from '../Search';
 
 const cx = classNames.bind(styles);
@@ -95,7 +97,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="tiktok" />
+                <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="tiktok" />
+                </Link>
 
                 {<Search />}
 
