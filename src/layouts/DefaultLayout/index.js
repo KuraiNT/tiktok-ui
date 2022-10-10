@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './DefaultLayout.module.scss';
 import classNames from 'classnames/bind';
 
@@ -17,5 +18,9 @@ function DefaultLayout({ children }) {
         </div>
     );
 }
+
+DefaultLayout.prototype = {
+    children: PropTypes.node.isRequired,
+};
 
 export default DefaultLayout;
